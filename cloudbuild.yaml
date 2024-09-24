@@ -20,4 +20,4 @@ options:
   substitutionOption: ALLOW_LOOSE
 substitutions:
   _IMAGE_NAME: workstation-image
-  _CONTAINER_REPO: us-central1-docker.pkg.dev/strava-431214/firebaseapphosting-images
+  _CONTAINER_REPO: europe-west1-docker.pkg.dev/mattsday-home/home
