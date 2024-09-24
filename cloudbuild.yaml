@@ -1,0 +1,23 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - "--no-cache"
+      - "-t"
+      - "$_CONTAINER_REPO/$_IMAGE_NAME:code$COMMIT_SHA"
+      - "-t"
+      - "$_CONTAINER_REPO/$_IMAGE_NAME:latest"
+      - $_ROOT_DIR
+    id: Build
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - "$_CONTAINER_REPO/$_IMAGE_NAME:code$COMMIT_SHA"
+    id: Push
+images:
+  - "$_CONTAINER_REPO/$_IMAGE_NAME:code$COMMIT_SHA"
+options:
+  substitutionOption: ALLOW_LOOSE
+substitutions:
+  _IMAGE_NAME: workstation-image
+  _CONTAINER_REPO: us-central1-docker.pkg.dev/strava-431214/firebaseapphosting-images

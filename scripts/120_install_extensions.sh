@@ -1,0 +1,33 @@
+#!/bin/sh
+
+/opt/code-oss/bin/codeoss-cloudworkstations \
+    --install-extension dbaeumer.vscode-eslint \
+    --install-extension Dart-Code.dart-code \
+    --install-extension ms-azuretools.vscode-docker \
+    --install-extension Dart-Code.flutter \
+    --install-extension GitHub.vscode-pull-request-github \
+    --install-extension golang.go \
+    --install-extension google-cloud-spanner-ecosystem.google-cloud-spanner-driver \
+    --install-extension ms-toolsai.jupyter \
+    --install-extension ms-toolsai.vscode-jupyter-cell-tags \
+    --install-extension ms-toolsai.jupyter-keymap \
+    --install-extension ms-toolsai.jupyter-renderers \
+    --install-extension ms-toolsai.vscode-jupyter-slideshow \
+    --install-extension foxundermoon.shell-format \
+    --install-extension hashicorp.terraform \
+    --install-extension redhat.vscode-yaml \
+    --install-extension ms-python.python \
+    --install-extension ms-python.isort \
+    --install-extension ms-python.autopep8 \
+    --install-extension Greenbyte.handlebars-preview \
+    --install-extension vscjava.vscode-gradle \
+    --install-extension vscjava.vscode-java-pack \
+    --install-extension ms-dotnettools.vscode-dotnet-runtime \
+    --install-extension bradlc.vscode-tailwindcss \
+    --install-extension redhat.java \
+    --install-extension vscjava.vscode-gradle \
+    --install-extension vscjava.vscode-java-debug \
+    --install-extension GitLab.gitlab-workflow \
+    --install-extension DavidAnson.vscode-markdownlint \
+    --install-extension vscjava.vscode-java-dependency \
+    --install-extension charliermarsh.ruff
