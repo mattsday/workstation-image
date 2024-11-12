@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/opt/code-oss/bin/codeoss-cloudworkstations \
+runuser user -- /opt/code-oss/bin/codeoss-cloudworkstations \
     --install-extension dbaeumer.vscode-eslint \
     --install-extension Dart-Code.dart-code \
     --install-extension ms-azuretools.vscode-docker \
@@ -30,4 +30,5 @@
     --install-extension GitLab.gitlab-workflow \
     --install-extension DavidAnson.vscode-markdownlint \
     --install-extension vscjava.vscode-java-dependency \
-    --install-extension charliermarsh.ruff
+    --install-extension charliermarsh.ruff \
+    --install-extension ms-vscode.live-server &
