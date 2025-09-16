@@ -18,6 +18,7 @@ images:
   - "$_CONTAINER_REPO/$_IMAGE_NAME:code$COMMIT_SHA"
 options:
   substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
 substitutions:
   _IMAGE_NAME: workstation-image
   _CONTAINER_REPO: europe-west1-docker.pkg.dev/mattsday-home/home
