@@ -22,3 +22,5 @@ options:
 substitutions:
   _IMAGE_NAME: workstation-image
   _CONTAINER_REPO: europe-west1-docker.pkg.dev/mattsday-home/home
+  _ROOT_DIR: .
+  
