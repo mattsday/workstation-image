@@ -6,6 +6,9 @@ RUN npm install -g firebase-tools genkit @google/gemini-cli
 # Setup Terraform
 RUN wget https://releases.hashicorp.com/terraform/1.9.6/terraform_1.9.6_linux_amd64.zip -O terraform.zip && unzip terraform.zip terraform && mv terraform /usr/local/bin/ && chmod +x /usr/local/bin/terraform && rm terraform.zip
 
+# Workaround: Remove Helm repo that's broken as of 2025-09-16
+RUN rm /etc/apt/sources.list.d/helm-stable-debian.list
+
 # Install some useful packages
 RUN apt-get update && apt-get install -y zsh shellcheck htop curl git unzip xz-utils zip
 
