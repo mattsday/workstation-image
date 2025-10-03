@@ -1,7 +1,7 @@
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest
 
 # Setup Gemini, Firebase, and Genkit
-RUN npm install -g firebase-tools genkit @google/gemini-cli
+RUN npm install -g firebase-tools genkit @google/gemini-cli@latest
 
 # Setup Terraform
 RUN wget https://releases.hashicorp.com/terraform/1.9.6/terraform_1.9.6_linux_amd64.zip -O terraform.zip && unzip terraform.zip terraform && mv terraform /usr/local/bin/ && chmod +x /usr/local/bin/terraform && rm terraform.zip
