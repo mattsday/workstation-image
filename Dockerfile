@@ -1,6 +1,12 @@
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest
 
-RUN npm install -g @google/gemini-cli firebase-tools && \
+RUN echo Installing packages && \
+    # Workaround for yarn bug in base image - TODO: Remove when fixed upstream
+    # b/479803439
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo gpg --dearmour -o /usr/share/keyrings/yarn-keyring.gpg && \
+    echo "deb [signed-by=/usr/share/keyrings/yarn-keyring.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
+    # Gemini CLI & Firebase tools
+    npm install -g @google/gemini-cli firebase-tools && \
     # install hashicorp tools
     wget -O - https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list && \
@@ -8,8 +14,6 @@ RUN npm install -g @google/gemini-cli firebase-tools && \
     # Install the Pulumi SDK, including the cli and language runtimes.
     curl -fsSL https://get.pulumi.com/ | bash -s -- --version $PULUMI_VERSION && \
     mv ~/.pulumi/bin/* /usr/bin && \
-    # Workaround for yarn bug in base image
-    rm /etc/apt/sources.list.d/yarn.list && \
     # update and upgrade any system packages
     apt-get update && apt -y upgrade && \
     # install packages
