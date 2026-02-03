@@ -8,6 +8,8 @@ RUN npm install -g @google/gemini-cli firebase-tools && \
     # Install the Pulumi SDK, including the cli and language runtimes.
     curl -fsSL https://get.pulumi.com/ | bash -s -- --version $PULUMI_VERSION && \
     mv ~/.pulumi/bin/* /usr/bin && \
+    # Workaround for yarn bug in base image
+    rm /etc/apt/sources.list.d/yarn.list && \
     # update and upgrade any system packages
     apt-get update && apt -y upgrade && \
     # install packages
