@@ -48,5 +48,5 @@ COPY --from=aws-cli /usr/local/bin/aws /usr/local/bin/aws_completer /usr/local/b
 COPY --from=azure-cli /usr/bin/az /usr/local/bin/az
 
 # Copy runtime config (extensions, shell scripts, etc)
-COPY --chmod=0755 scripts/*.sh /etc/workstation-startup.d/
+COPY scripts/*.sh /etc/workstation-startup.d/
 
