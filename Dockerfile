@@ -1,7 +1,5 @@
 FROM ghcr.io/astral-sh/uv:latest AS uv-source
 FROM oven/bun:latest AS bun-source
-FROM amazon/aws-cli AS aws-cli
-FROM mcr.microsoft.com/azure-cli AS azure-cli
 
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:public-image-current
 
@@ -44,8 +42,6 @@ RUN apt-get update && apt-get -y upgrade && \
 
 COPY --from=uv-source /uv /usr/local/bin/uv
 COPY --from=bun-source /usr/local/bin/bun /usr/local/bin/bun
-COPY --from=aws-cli /usr/local/bin/aws /usr/local/bin/aws_completer /usr/local/bin/
-COPY --from=azure-cli /usr/bin/az /usr/local/bin/az
 
 # Copy runtime config (extensions, shell scripts, etc)
 COPY scripts/*.sh /etc/workstation-startup.d/
