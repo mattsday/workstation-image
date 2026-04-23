@@ -37,6 +37,7 @@ RUN apt-get update && apt-get -y upgrade && \
         htop \
         packer \
         terraform \
+        dotnet-sdk-10.0 \
         && apt-get remove --purge --auto-remove -y \
         && rm -rf /var/lib/apt/lists/*
 
