@@ -37,7 +37,9 @@ RUN apt-get update && apt-get -y upgrade && \
         htop \
         packer \
         terraform \
+        build-essential \
         dotnet-sdk-10.0 \
+        && DEBIAN_FRONTEND=noninteractive npx -y playwright install-deps \
         && apt-get remove --purge --auto-remove -y \
         && rm -rf /var/lib/apt/lists/*
 
