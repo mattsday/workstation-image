@@ -3,9 +3,11 @@ FROM oven/bun:latest AS bun-source
 
 FROM us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:public-image-current
 
+ENV DEBIAN_FRONTEND=noninteractive 
+
 RUN echo Installing packages && \
     # Gemini, Genkit & Firebase tools
-    npm install -g @google/gemini-cli firebase-tools genkit-cli --silent && \
+    npm install -g firebase-tools genkit-cli --silent && \
     # hashicorp tools
     wget -O - https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
@@ -37,9 +39,10 @@ RUN apt-get update && apt-get -y upgrade && \
         htop \
         packer \
         terraform \
+        gh \
         build-essential \
         dotnet-sdk-10.0 \
-        && DEBIAN_FRONTEND=noninteractive npx -y playwright install-deps \
+        && npx -y playwright install-deps \
         && apt-get remove --purge --auto-remove -y \
         && rm -rf /var/lib/apt/lists/*
 
