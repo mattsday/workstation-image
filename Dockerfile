@@ -24,6 +24,7 @@ RUN apt-get update && apt-get -y upgrade && \
         unzip \
         gnupg \
         direnv \
+        shfmt \
         jq \
         yq \
         yamllint \
