@@ -1,3 +1,3 @@
 #!/bin/sh
 
-runuser user -- npx playwright install --with-deps &
+runuser user -- npx -y playwright install-deps &
