@@ -52,9 +52,6 @@ COPY --from=uv-source /uvx /usr/local/bin/uvx
 COPY --from=bun-source /usr/local/bin/bun /usr/local/bin/bun
 COPY --from=bun-source /usr/local/bin/bunx /usr/local/bin/bunx
 
-# Make zsh default shell for the user
-RUN chsh user -s /bin/zsh
-
 # Copy runtime config (extensions, shell scripts, etc)
 COPY scripts/*.sh /etc/workstation-startup.d/
 

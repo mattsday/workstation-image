@@ -4,7 +4,7 @@
 USER_HOME="/home/user"
 
 # Change the shell to zsh
-chsh -s /bin/sh user
+chsh -s /bin/zsh user
 
 # Clone & init the shell config if it doesn't exist
 if [ ! -d "${USER_HOME}/.dotfiles" ]; then
